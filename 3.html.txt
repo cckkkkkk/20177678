@@ -1,0 +1,87 @@
+int a[3][3];                   
+int row[2] = { 0 };            
+int line[2] = { 0 };            
+int b[2];                       /
+const int c[3] = { 1,2,3 };
+
+  void input()
+{
+    FILE* fp1;
+    fp1 = fopen("input.txt", "r");
+  
+     for (int i = 0; i < 3; i++)
+      {
+          for (int j = 0; j < 3; j++)
+          {
+             
+             fscanf(fp1, "%d", &a[i][j]);
+             if (a[i][j] != 0)                
+             {
+                 row[t] = i;
+                 line[t] = j;
+                 b[t] = a[i][j];
+                 t++;
+             }
+         }
+     }
+ }
+void search()
+{
+    int y = 6;
+    for (int i = 0; i < 2; i++)
+    {
+ 
+        for (int j = 0; j < 3; j++)
+        {
+            if (b[i] == c[j])
+                y = y - c[j];
+        }
+    }
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            if (a[row[i]][line[j]] == 0)
+            {
+                a[row[i]][line[j]] = y;
+            }
+        }
+    }
+ 
+}
+void hang()
+{
+    int y = 6;
+    for (int i = 0; i < 3; i++)
+    {
+        int temp = 0;                             
+        for (int j = 0; j < 3; j++)            
+        {
+            if (a[i][j] != 0)
+                temp++;
+        }
+        if (temp == 2)                              
+        {
+            for (int k = 0; k < 3; k++)        
+            {
+                if (a[i][k] != 0)
+                {
+                    y = y - a[i][k];
+                }
+            }
+ 
+            for (int f = 0; f < 3; f++)         
+            {
+                if (a[i][f] == 0)
+                {
+                    a[i][f] = y;
+                }
+ 
+            }
+            y = 6;                                         
+ 
+        }
+        else
+            continue;
+    }
+}
