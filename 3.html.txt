@@ -1,7 +1,7 @@
 int a[3][3];                   
 int row[2] = { 0 };            
 int line[2] = { 0 };            
-int b[2];                       /
+int b[2];                       
 const int c[3] = { 1,2,3 };
 
   void input()
